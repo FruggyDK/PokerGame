@@ -9,11 +9,11 @@ namespace PokerGame
     internal class Deck : Card
     {
         const int NUM_OF_CARDS = 52;
-        public List<Card> deck;
+        public List<Card> cards;
 
         public Deck()
         {
-            deck = new List<Card>(NUM_OF_CARDS);
+            cards = new List<Card>(NUM_OF_CARDS);
             PopulateDeck();
         }
 
@@ -23,7 +23,7 @@ namespace PokerGame
             {
                 foreach (VALUE v in Enum.GetValues(typeof(VALUE)))
                 {
-                    deck.Add(new Card { Suit = s, Value = v });
+                    cards.Add(new Card { Suit = s, Value = v });
                 }
             }
 
@@ -35,17 +35,17 @@ namespace PokerGame
             Random rand = new Random();
             for (int i = 0; i < NUM_OF_CARDS; i++)
             {
-                int j = rand.Next(0, deck.Count);
-                Card tmp = deck[j];
-                deck[j] = deck[i];
-                deck[i] = tmp;
+                int j = rand.Next(0, cards.Count);
+                Card tmp = cards[j];
+                cards[j] = cards[i];
+                cards[i] = tmp;
             }
         }
 
         public Card DrawCard()
         {
-            Card card = deck[deck.Count - 1];
-            deck.RemoveAt(deck.Count - 1);
+            Card card = cards[cards.Count - 1];
+            cards.RemoveAt(cards.Count - 1);
             return card;
         }
     }

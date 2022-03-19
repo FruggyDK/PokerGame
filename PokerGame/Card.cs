@@ -22,6 +22,7 @@ namespace PokerGame
             EIGHT, NINE, JACK, QUEEN, KING, ACE
         }
 
+
         public SUIT Suit { get; set; }
         public VALUE Value { get; set; }
 
