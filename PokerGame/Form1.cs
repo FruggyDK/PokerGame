@@ -16,12 +16,20 @@ namespace PokerGame
                 listView1.Items.Add(card.ToString());
             }
             */
+            int i = 0;
             deck.cards.ForEach(
                 Card =>
                 {
-                    listView1.Items.Add(Card.ToString());
+                    this.Controls.Add(Card.Show());
+                    Card.Show().Location = new Point(i, i);
+                    i++;
                 }
             );
+
+
+            this.Controls.Add(deck.cards[0].Show());
+            deck.cards[0].Show().Location = new Point(0, 0);
+
 
             var spades = deck.cards.Where(card => card.Suit == Card.SUIT.SPADES).ToList();
 

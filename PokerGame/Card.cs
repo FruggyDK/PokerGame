@@ -30,5 +30,17 @@ namespace PokerGame
         {
             return Value.ToString() + " of " + Suit.ToString();
         }
+
+        public PictureBox Show()
+        {
+            string filename = "H" + (int)this.Value;
+            Image img = (Image)Properties.Resources.ResourceManager.GetObject("C7");
+            PictureBox pictureBox = new PictureBox
+            {
+                SizeMode = PictureBoxSizeMode.AutoSize,
+                Image = img
+            };
+            return pictureBox;
+        }
     }
 }
