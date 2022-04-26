@@ -2,6 +2,7 @@ namespace PokerGame
 {
     public partial class Form1 : Form
     {
+        private Deck deck = new Deck();
         public Form1()
         {
             InitializeComponent();
@@ -9,29 +10,7 @@ namespace PokerGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Deck deck = new Deck();
-
-            /*foreach (Card card in deck.deck)
-            {
-                listView1.Items.Add(card.ToString());
-            }
-            */
-            int i = 0;
-            deck.cards.ForEach(
-                Card =>
-                {
-                    this.Controls.Add(Card.Show());
-                    Card.Show().Location = new Point(i, i);
-                    i++;
-                }
-            );
-
-
-            this.Controls.Add(deck.cards[0].Show());
-            deck.cards[0].Show().Location = new Point(0, 0);
-
-
-            var spades = deck.cards.Where(card => card.Suit == Card.SUIT.SPADES).ToList();
+            /*var spades = deck.cards.Where(card => card.Suit == Card.SUIT.SPADES).ToList();
 
             var sum = deck.cards
                 .Where(Card => Card.Suit == Card.SUIT.SPADES)
@@ -59,8 +38,42 @@ namespace PokerGame
             MessageBox.Show(spades.ToArray().ToString());
             Player player = new Player();
             //MessageBox.Show(player.address.ToString());
+            */
 
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            for (int j = 0; j < 4; j++)
+            {
+                for (int i = 0; i <= 12; i++)
+                {
+                    Card card = deck.DrawCard();
+                    GamePage.Controls.Add(card.Show(new Point((10 + 53) * i + 5, 90 * j + 5)));
+                    
+                }
+            }
+        }
+
+        private void GamePage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(txtUsername + " " + txtPassword);
         }
     }
 }

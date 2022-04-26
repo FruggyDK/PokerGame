@@ -23,11 +23,11 @@ namespace PokerGame
             {
                 foreach (VALUE v in Enum.GetValues(typeof(VALUE)))
                 {
-                    cards.Add(new Card { Suit = s, Value = v });
+                    cards.Add(new Card {Suit = s, Value = v });
                 }
             }
 
-            ShuffleDeck();
+            //ShuffleDeck();
         }
 
         private void ShuffleDeck()
@@ -44,9 +44,17 @@ namespace PokerGame
 
         public Card DrawCard()
         {
-            Card card = cards[cards.Count - 1];
-            cards.RemoveAt(cards.Count - 1);
-            return card;
+            if (cards.Count != 0)
+            {
+                Card card = cards[cards.Count - 1];
+                cards.RemoveAt(cards.Count - 1);
+                return card;
+            } else
+            {
+                MessageBox.Show("No more cards to draw!");
+                throw new Exception("NoMoreCardsInDeck");
+            }
+            
         }
     }
 }
