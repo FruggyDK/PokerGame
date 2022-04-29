@@ -74,6 +74,13 @@ namespace PokerGame
         private void btnLogin_Click(object sender, EventArgs e)
         {
             MessageBox.Show(txtUsername + " " + txtPassword);
+            if (DatabaseHandler.TestConnection())
+            {
+                MessageBox.Show("Succesfully connected to database");
+            } else
+            {
+                MessageBox.Show("Could not establish a connection to the database: " + Properties.Settings.Default.Database);
+            }
         }
     }
 }
