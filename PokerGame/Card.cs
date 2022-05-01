@@ -58,7 +58,8 @@ namespace PokerGame
             {
                 SizeMode = PictureBoxSizeMode.AutoSize,
                 Image = img,
-                Name = this.ToString()
+                Name = this.ToString(),
+                Tag = Value
             };
             pictureBox.Click += Card_click;
             return pictureBox;

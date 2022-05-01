@@ -34,11 +34,13 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.GamePage = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gbDealerCards = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.gbPlayerCards = new System.Windows.Forms.GroupBox();
             this.ProfilePage = new System.Windows.Forms.TabPage();
-            this.gbDealerCards = new System.Windows.Forms.GroupBox();
             this.SceneManger.SuspendLayout();
             this.LoginPage.SuspendLayout();
             this.GamePage.SuspendLayout();
@@ -96,6 +98,8 @@
             // 
             // GamePage
             // 
+            this.GamePage.Controls.Add(this.label2);
+            this.GamePage.Controls.Add(this.label1);
             this.GamePage.Controls.Add(this.gbDealerCards);
             this.GamePage.Controls.Add(this.button2);
             this.GamePage.Controls.Add(this.button1);
@@ -108,6 +112,35 @@
             this.GamePage.Text = "Game";
             this.GamePage.UseVisualStyleBackColor = true;
             this.GamePage.Click += new System.EventHandler(this.GamePage_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(600, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(600, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "label1";
+            // 
+            // gbDealerCards
+            // 
+            this.gbDealerCards.BackColor = System.Drawing.Color.LightGray;
+            this.gbDealerCards.Location = new System.Drawing.Point(218, 63);
+            this.gbDealerCards.Name = "gbDealerCards";
+            this.gbDealerCards.Size = new System.Drawing.Size(296, 128);
+            this.gbDealerCards.TabIndex = 8;
+            this.gbDealerCards.TabStop = false;
+            this.gbDealerCards.Text = "Dealers Cards:";
             // 
             // button2
             // 
@@ -150,16 +183,6 @@
             this.ProfilePage.UseVisualStyleBackColor = true;
             this.ProfilePage.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // gbDealerCards
-            // 
-            this.gbDealerCards.BackColor = System.Drawing.Color.LightGray;
-            this.gbDealerCards.Location = new System.Drawing.Point(218, 63);
-            this.gbDealerCards.Name = "gbDealerCards";
-            this.gbDealerCards.Size = new System.Drawing.Size(296, 128);
-            this.gbDealerCards.TabIndex = 8;
-            this.gbDealerCards.TabStop = false;
-            this.gbDealerCards.Text = "Dealers Cards:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -174,6 +197,7 @@
             this.LoginPage.ResumeLayout(false);
             this.LoginPage.PerformLayout();
             this.GamePage.ResumeLayout(false);
+            this.GamePage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -190,5 +214,7 @@
         private Button button1;
         private GroupBox gbPlayerCards;
         private GroupBox gbDealerCards;
+        private Label label2;
+        private Label label1;
     }
 }

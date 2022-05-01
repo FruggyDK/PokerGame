@@ -61,6 +61,41 @@ namespace PokerGame
             }
         }
 
+        private void UpdateScore()
+        {
+            // Update players score
+            int playerScore = CalculateScoreOfHand(gbPlayerCards);
+            label1.Text = playerScore.ToString();
+        }
+
+        private int CalculateScoreOfHand(GroupBox hand)
+        {
+            int score = 0;
+            foreach (PictureBox card in gbPlayerCards.Controls)
+            {
+                switch (card.Tag)
+                {
+                    case Card.VALUE.ACE:
+                        score += 10;
+                        break;
+                    case Card.VALUE.JACK:
+                        score += 10;
+                        break;
+                    case Card.VALUE.KING:
+                        score += 10;
+                        break;
+                    case Card.VALUE.QUEEN:
+                        score += 10;
+                        break;
+                    default:
+                        score += (int)card.Tag;
+                        break;
+                }
+            }
+
+            return score;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Card card = deck.DrawCard();
@@ -75,6 +110,8 @@ namespace PokerGame
             }
 
             gbPlayerCards.BackColor = Color.White;
+
+            UpdateScore();
 
             /*for (int j = 0; j < 4; j++)
             {
@@ -112,5 +149,10 @@ namespace PokerGame
         private void groupBox1_Enter(object sender, EventArgs e) { }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e) { }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

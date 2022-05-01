@@ -19,11 +19,8 @@ namespace PokerGame
 
         enum TurnOptions
         {
-            Fold,
-            Call,
-            Raise,
-            Check,
-            AllIn
+            Hit,
+            Stand
         }
 
         private RoundType roundType = RoundType.PreFlop;
