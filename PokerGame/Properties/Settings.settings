@@ -9,7 +9,7 @@
       <Value Profile="(Default)">5432</Value>
     </Setting>
     <Setting Name="Database" Type="System.String" Scope="User">
-      <Value Profile="(Default)">BlackJack</Value>
+      <Value Profile="(Default)">Blackjack</Value>
     </Setting>
     <Setting Name="UserId" Type="System.String" Scope="User">
       <Value Profile="(Default)">postgres</Value>

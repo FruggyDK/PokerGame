@@ -3,6 +3,7 @@ namespace PokerGame
     public partial class Form1 : Form
     {
         private Deck deck = new Deck();
+        private User user;
 
         public Form1()
         {
@@ -11,38 +12,6 @@ namespace PokerGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*var spades = deck.cards.Where(card => card.Suit == Card.SUIT.SPADES).ToList();
-
-            var sum = deck.cards
-                .Where(Card => Card.Suit == Card.SUIT.SPADES)
-                .Select(Card => ((int)Card.Value))
-                .Sum();
-
-            Func<int, bool> isEven = n => n % 2 == 0;
-            Func<int, bool> isOdd = n => n % 2 != 0;
-            List<int> numbers = new() { 12, 321, 1, 2, 3, 4, 5, 56 };
-
-            List<int> odd = numbers.Where(isOdd).ToList();
-
-            List<int> even = numbers.Where(isEven).ToList();
-            string arr = "";
-
-            odd.ForEach(
-                n =>
-                {
-                    arr += (n + ", ").ToString();
-                }
-            );
-
-            MessageBox.Show(arr);
-
-            MessageBox.Show(spades.ToArray().ToString());
-            Player player = new Player();
-            //MessageBox.Show(player.address.ToString());
-            */
-
-
-            // Start on game page for FASTer debug xD
             SceneManger.SelectedIndex = 1;
         }
 
@@ -124,35 +93,56 @@ namespace PokerGame
             }*/
         }
 
-        private void GamePage_Click(object sender, EventArgs e) { }
-
-        private void tabPage1_Click(object sender, EventArgs e) { }
-
-        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(txtUsername + " " + txtPassword);
-            if (DatabaseHandler.TestConnection())
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            long user_id = DatabaseHandler.Login(username, password);
+            if (user_id != -1)
             {
-                MessageBox.Show("Succesfully connected to database");
+                user = new User(user_id, username);
+                label3.Text = "Nice to see you, " + username + "!";
+                MessageBox.Show(user.chip_balance.ToString());
+                user.chip_balance = 0;
+                user.SyncWithDatabase();
+                SceneManger.SelectTab(menuPage);
             }
-            else
-            {
-                MessageBox.Show(
-                    "Could not establish a connection to the database: "
-                        + Properties.Settings.Default.Database
-                );
-            }
+
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e) { }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e) { }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            gbDealerCards.Controls.Clear();
+            gbPlayerCards.Controls.Clear();
+            label1.Text = "0";
+            label2.Text = "0";
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Handle logout?
+            SceneManger.SelectTab(LoginPage);
+        }
+
+        private void SceneManger_Selected(object sender, TabControlEventArgs e)
+        {
+            txtUsername.Clear();
+            txtPassword.Clear();
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            SceneManger.SelectTab(GamePage);
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            SceneManger.SelectTab(ProfilePage);
+        }
+
+
     }
 }

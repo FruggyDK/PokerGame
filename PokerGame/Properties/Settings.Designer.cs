@@ -49,7 +49,7 @@ namespace PokerGame.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("BlackJack")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Blackjack")]
         public string Database {
             get {
                 return ((string)(this["Database"]));
