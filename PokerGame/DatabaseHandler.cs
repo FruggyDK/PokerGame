@@ -19,7 +19,6 @@ namespace PokerGame
             + Settings.Default.Password
             + ";";
 
-
         public enum Table
         {
             Movie,

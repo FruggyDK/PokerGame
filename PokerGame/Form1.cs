@@ -3,6 +3,7 @@ namespace PokerGame
     public partial class Form1 : Form
     {
         private Deck deck = new Deck();
+
         public Form1()
         {
             InitializeComponent();
@@ -40,12 +41,42 @@ namespace PokerGame
             //MessageBox.Show(player.address.ToString());
             */
 
+
+            // Start on game page for FASTer debug xD
+            SceneManger.SelectedIndex = 1;
+        }
+
+        private void AddCardToGroupBox(GroupBox groupBox, Card card)
+        {
+            int spacing = 15;
+            int cardCount = groupBox.Controls.Count;
+            PictureBox cardSprite = card.Sprite();
+            // DEBUG
+            MessageBox.Show(card.ToString());
+            if (cardCount < 4)
+            {
+                groupBox.Controls.Add(
+                    card.Show(new Point((cardSprite.Width + spacing) * cardCount + spacing, 30))
+                );
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Card card = deck.DrawCard();
 
-            for (int j = 0; j < 4; j++)
+            if (gbPlayerCards.Controls.Count < 4)
+            {
+                AddCardToGroupBox(gbPlayerCards, card);
+            }
+            else
+            {
+                AddCardToGroupBox(gbDealerCards, card);
+            }
+
+            gbPlayerCards.BackColor = Color.White;
+
+            /*for (int j = 0; j < 4; j++)
             {
                 for (int i = 0; i <= 12; i++)
                 {
@@ -53,23 +84,14 @@ namespace PokerGame
                     GamePage.Controls.Add(card.Show(new Point((10 + 53) * i + 5, 90 * j + 5)));
                     
                 }
-            }
+            }*/
         }
 
-        private void GamePage_Click(object sender, EventArgs e)
-        {
+        private void GamePage_Click(object sender, EventArgs e) { }
 
-        }
+        private void tabPage1_Click(object sender, EventArgs e) { }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -77,10 +99,18 @@ namespace PokerGame
             if (DatabaseHandler.TestConnection())
             {
                 MessageBox.Show("Succesfully connected to database");
-            } else
+            }
+            else
             {
-                MessageBox.Show("Could not establish a connection to the database: " + Properties.Settings.Default.Database);
+                MessageBox.Show(
+                    "Could not establish a connection to the database: "
+                        + Properties.Settings.Default.Database
+                );
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e) { }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e) { }
     }
 }

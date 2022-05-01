@@ -27,7 +27,7 @@ namespace PokerGame
                 }
             }
 
-            //ShuffleDeck();
+            ShuffleDeck();
         }
 
         private void ShuffleDeck()

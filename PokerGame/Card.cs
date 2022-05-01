@@ -18,10 +18,20 @@ namespace PokerGame
 
         public enum VALUE
         {
-            TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, 
-            EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
+            TWO = 2,
+            THREE,
+            FOUR,
+            FIVE,
+            SIX,
+            SEVEN,
+            EIGHT,
+            NINE,
+            TEN,
+            JACK,
+            QUEEN,
+            KING,
+            ACE
         }
-
 
         public SUIT Suit { get; set; }
         public VALUE Value { get; set; }
@@ -31,7 +41,7 @@ namespace PokerGame
             return Value.ToString() + " of " + Suit.ToString();
         }
 
-        public PictureBox Show(Point location)
+        public PictureBox Sprite()
         {
             string pictureCards = "JQKA";
             string suit = this.Suit.ToString()[0].ToString();
@@ -48,11 +58,17 @@ namespace PokerGame
             {
                 SizeMode = PictureBoxSizeMode.AutoSize,
                 Image = img,
-                Location = location,
                 Name = this.ToString()
             };
             pictureBox.Click += Card_click;
             return pictureBox;
+        }
+
+        public PictureBox Show(Point location)
+        {
+            PictureBox sprite = Sprite();
+            sprite.Location = location;
+            return sprite;
         }
 
         private void Card_click(object sender, EventArgs e)
