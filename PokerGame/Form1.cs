@@ -93,7 +93,6 @@ namespace PokerGame
             }*/
         }
 
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
@@ -103,15 +102,13 @@ namespace PokerGame
             {
                 user = new User(user_id, username);
                 label3.Text = "Nice to see you, " + username + "!";
+                lblBalance.Text = user.chip_balance.ToString();
                 MessageBox.Show(user.chip_balance.ToString());
-                user.chip_balance = 0;
+                user.chip_balance = 9999;
                 user.SyncWithDatabase();
                 SceneManger.SelectTab(menuPage);
             }
-
         }
-
-
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -143,6 +140,10 @@ namespace PokerGame
             SceneManger.SelectTab(ProfilePage);
         }
 
+        private void GamePage_Click(object sender, EventArgs e) { }
 
+        private void pictureBox4_Click(object sender, EventArgs e) { }
+
+        private void pictureBox7_Click(object sender, EventArgs e) { }
     }
 }

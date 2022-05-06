@@ -35,7 +35,13 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.GamePage = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblBet = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,14 +52,16 @@
             this.gbPlayerCards = new System.Windows.Forms.GroupBox();
             this.ProfilePage = new System.Windows.Forms.TabPage();
             this.menuPage = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.SceneManger.SuspendLayout();
             this.LoginPage.SuspendLayout();
             this.GamePage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuPage.SuspendLayout();
             this.SuspendLayout();
@@ -64,10 +72,10 @@
             this.SceneManger.Controls.Add(this.GamePage);
             this.SceneManger.Controls.Add(this.ProfilePage);
             this.SceneManger.Controls.Add(this.menuPage);
-            this.SceneManger.Location = new System.Drawing.Point(12, 12);
+            this.SceneManger.Location = new System.Drawing.Point(1, -2);
             this.SceneManger.Name = "SceneManger";
             this.SceneManger.SelectedIndex = 0;
-            this.SceneManger.Size = new System.Drawing.Size(768, 427);
+            this.SceneManger.Size = new System.Drawing.Size(1130, 530);
             this.SceneManger.TabIndex = 6;
             this.SceneManger.Selected += new System.Windows.Forms.TabControlEventHandler(this.SceneManger_Selected);
             // 
@@ -79,7 +87,7 @@
             this.LoginPage.Location = new System.Drawing.Point(4, 24);
             this.LoginPage.Name = "LoginPage";
             this.LoginPage.Padding = new System.Windows.Forms.Padding(3);
-            this.LoginPage.Size = new System.Drawing.Size(760, 399);
+            this.LoginPage.Size = new System.Drawing.Size(1113, 481);
             this.LoginPage.TabIndex = 0;
             this.LoginPage.Text = "Login";
             this.LoginPage.UseVisualStyleBackColor = true;
@@ -111,7 +119,13 @@
             // 
             // GamePage
             // 
-            this.GamePage.Controls.Add(this.pictureBox1);
+            this.GamePage.Controls.Add(this.lblBet);
+            this.GamePage.Controls.Add(this.label6);
+            this.GamePage.Controls.Add(this.lblBalance);
+            this.GamePage.Controls.Add(this.label4);
+            this.GamePage.Controls.Add(this.pictureBox8);
+            this.GamePage.Controls.Add(this.pictureBox7);
+            this.GamePage.Controls.Add(this.pictureBox6);
             this.GamePage.Controls.Add(this.pictureBox2);
             this.GamePage.Controls.Add(this.button3);
             this.GamePage.Controls.Add(this.label2);
@@ -123,25 +137,83 @@
             this.GamePage.Location = new System.Drawing.Point(4, 24);
             this.GamePage.Name = "GamePage";
             this.GamePage.Padding = new System.Windows.Forms.Padding(3);
-            this.GamePage.Size = new System.Drawing.Size(760, 399);
+            this.GamePage.Size = new System.Drawing.Size(1122, 502);
             this.GamePage.TabIndex = 1;
             this.GamePage.Text = "Game";
             this.GamePage.UseVisualStyleBackColor = true;
+            this.GamePage.Click += new System.EventHandler(this.GamePage_Click);
             // 
-            // pictureBox1
+            // lblBet
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(53, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 144);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.lblBet.AutoSize = true;
+            this.lblBet.Location = new System.Drawing.Point(77, 131);
+            this.lblBet.Name = "lblBet";
+            this.lblBet.Size = new System.Drawing.Size(13, 15);
+            this.lblBet.TabIndex = 20;
+            this.lblBet.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(77, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 15);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Bet:";
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Location = new System.Drawing.Point(77, 78);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(13, 15);
+            this.lblBalance.TabIndex = 18;
+            this.lblBalance.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(77, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 15);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Balance:";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(59, 206);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(100, 144);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox8.TabIndex = 16;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(56, 218);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(100, 144);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 15;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(56, 226);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(100, 144);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 14;
+            this.pictureBox6.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(53, 199);
+            this.pictureBox2.Location = new System.Drawing.Point(55, 232);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 144);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -150,7 +222,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(614, 215);
+            this.button3.Location = new System.Drawing.Point(981, 212);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(67, 47);
             this.button3.TabIndex = 11;
@@ -161,7 +233,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(600, 108);
+            this.label2.Location = new System.Drawing.Point(967, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 10;
@@ -170,7 +242,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(600, 81);
+            this.label1.Location = new System.Drawing.Point(967, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 9;
@@ -179,16 +251,16 @@
             // gbDealerCards
             // 
             this.gbDealerCards.BackColor = System.Drawing.Color.LightGray;
-            this.gbDealerCards.Location = new System.Drawing.Point(218, 63);
+            this.gbDealerCards.Location = new System.Drawing.Point(229, 20);
             this.gbDealerCards.Name = "gbDealerCards";
-            this.gbDealerCards.Size = new System.Drawing.Size(296, 128);
+            this.gbDealerCards.Size = new System.Drawing.Size(539, 190);
             this.gbDealerCards.TabIndex = 8;
             this.gbDealerCards.TabStop = false;
             this.gbDealerCards.Text = "Dealers Cards:";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(530, 269);
+            this.button2.Location = new System.Drawing.Point(897, 266);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(67, 47);
             this.button2.TabIndex = 7;
@@ -197,7 +269,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(530, 215);
+            this.button1.Location = new System.Drawing.Point(897, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(67, 47);
             this.button1.TabIndex = 5;
@@ -208,9 +280,9 @@
             // gbPlayerCards
             // 
             this.gbPlayerCards.BackColor = System.Drawing.Color.LightGray;
-            this.gbPlayerCards.Location = new System.Drawing.Point(218, 215);
+            this.gbPlayerCards.Location = new System.Drawing.Point(229, 232);
             this.gbPlayerCards.Name = "gbPlayerCards";
-            this.gbPlayerCards.Size = new System.Drawing.Size(296, 128);
+            this.gbPlayerCards.Size = new System.Drawing.Size(539, 190);
             this.gbPlayerCards.TabIndex = 6;
             this.gbPlayerCards.TabStop = false;
             this.gbPlayerCards.Text = "Your Cards:";
@@ -220,7 +292,7 @@
             this.ProfilePage.Location = new System.Drawing.Point(4, 24);
             this.ProfilePage.Name = "ProfilePage";
             this.ProfilePage.Padding = new System.Windows.Forms.Padding(3);
-            this.ProfilePage.Size = new System.Drawing.Size(760, 399);
+            this.ProfilePage.Size = new System.Drawing.Size(1113, 481);
             this.ProfilePage.TabIndex = 2;
             this.ProfilePage.Text = "Profile";
             this.ProfilePage.UseVisualStyleBackColor = true;
@@ -234,10 +306,19 @@
             this.menuPage.Location = new System.Drawing.Point(4, 24);
             this.menuPage.Name = "menuPage";
             this.menuPage.Padding = new System.Windows.Forms.Padding(3);
-            this.menuPage.Size = new System.Drawing.Size(760, 399);
+            this.menuPage.Size = new System.Drawing.Size(1113, 481);
             this.menuPage.TabIndex = 3;
             this.menuPage.Text = "Menu";
             this.menuPage.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(37, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "label3";
             // 
             // btnLogout
             // 
@@ -269,21 +350,12 @@
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(792, 451);
+            this.ClientSize = new System.Drawing.Size(1123, 521);
             this.Controls.Add(this.SceneManger);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -293,7 +365,9 @@
             this.LoginPage.PerformLayout();
             this.GamePage.ResumeLayout(false);
             this.GamePage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuPage.ResumeLayout(false);
             this.menuPage.PerformLayout();
@@ -320,8 +394,14 @@
         private Button btnLogout;
         private Button btnProfile;
         private Button btnPlay;
-        private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label3;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox6;
+        private Label label4;
+        private PictureBox pictureBox8;
+        private Label lblBalance;
+        private Label lblBet;
+        private Label label6;
     }
 }

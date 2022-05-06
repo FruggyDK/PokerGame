@@ -18,7 +18,8 @@ namespace PokerGame
 
         public enum VALUE
         {
-            TWO = 2,
+            ACE = 1,
+            TWO,
             THREE,
             FOUR,
             FIVE,
@@ -30,7 +31,6 @@ namespace PokerGame
             JACK,
             QUEEN,
             KING,
-            ACE
         }
 
         public SUIT Suit { get; set; }
@@ -43,16 +43,16 @@ namespace PokerGame
 
         public PictureBox Sprite()
         {
-            string pictureCards = "JQKA";
+            //string pictureCards = "JQKA";
             string suit = this.Suit.ToString()[0].ToString();
             int value = (int)this.Value;
             string cardValue = value.ToString();
 
-            if (value > 10)
+            /*if (value > 10)
             {
                 cardValue = pictureCards[value - 11].ToString();
-            }
-            string filename = suit + cardValue;
+            }*/
+            string filename = "_" + cardValue + suit;
             Image img = (Image)Properties.Resources.ResourceManager.GetObject(filename);
             PictureBox pictureBox = new PictureBox
             {
