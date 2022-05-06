@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.SceneManger = new System.Windows.Forms.TabControl();
             this.LoginPage = new System.Windows.Forms.TabPage();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -87,7 +86,7 @@
             this.LoginPage.Location = new System.Drawing.Point(4, 24);
             this.LoginPage.Name = "LoginPage";
             this.LoginPage.Padding = new System.Windows.Forms.Padding(3);
-            this.LoginPage.Size = new System.Drawing.Size(1113, 481);
+            this.LoginPage.Size = new System.Drawing.Size(1122, 502);
             this.LoginPage.TabIndex = 0;
             this.LoginPage.Text = "Login";
             this.LoginPage.UseVisualStyleBackColor = true;
@@ -181,7 +180,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Image = global::PokerGame.Properties.Resources.card_back;
             this.pictureBox8.Location = new System.Drawing.Point(59, 206);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(100, 144);
@@ -191,7 +190,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Image = global::PokerGame.Properties.Resources.card_back;
             this.pictureBox7.Location = new System.Drawing.Point(56, 218);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 144);
@@ -202,7 +201,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Image = global::PokerGame.Properties.Resources.card_back;
             this.pictureBox6.Location = new System.Drawing.Point(56, 226);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 144);
@@ -212,7 +211,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::PokerGame.Properties.Resources.card_back;
             this.pictureBox2.Location = new System.Drawing.Point(55, 232);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 144);
@@ -292,7 +291,7 @@
             this.ProfilePage.Location = new System.Drawing.Point(4, 24);
             this.ProfilePage.Name = "ProfilePage";
             this.ProfilePage.Padding = new System.Windows.Forms.Padding(3);
-            this.ProfilePage.Size = new System.Drawing.Size(1113, 481);
+            this.ProfilePage.Size = new System.Drawing.Size(1122, 502);
             this.ProfilePage.TabIndex = 2;
             this.ProfilePage.Text = "Profile";
             this.ProfilePage.UseVisualStyleBackColor = true;
@@ -306,7 +305,7 @@
             this.menuPage.Location = new System.Drawing.Point(4, 24);
             this.menuPage.Name = "menuPage";
             this.menuPage.Padding = new System.Windows.Forms.Padding(3);
-            this.menuPage.Size = new System.Drawing.Size(1113, 481);
+            this.menuPage.Size = new System.Drawing.Size(1122, 502);
             this.menuPage.TabIndex = 3;
             this.menuPage.Text = "Menu";
             this.menuPage.UseVisualStyleBackColor = true;
