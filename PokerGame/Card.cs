@@ -36,6 +36,8 @@ namespace PokerGame
         public SUIT Suit { get; set; }
         public VALUE Value { get; set; }
 
+        public bool revealed { get; set; }
+
         public override string ToString()
         {
             return Value.ToString() + " of " + Suit.ToString();
@@ -43,29 +45,38 @@ namespace PokerGame
 
         public PictureBox Sprite()
         {
-            //string pictureCards = "JQKA";
-            string suit = this.Suit.ToString()[0].ToString();
-            int value = (int)this.Value;
-            string cardValue = value.ToString();
-
-            /*if (value > 10)
+            string filename;
+            if (revealed == false)
             {
-                cardValue = pictureCards[value - 11].ToString();
-            }*/
-            string filename = "_" + cardValue + suit;
+                filename = "card_back";
+            }
+            else
+            {
+                string suit = this.Suit.ToString()[0].ToString();
+                int value = (int)this.Value;
+                string cardValue = value.ToString();
+
+                filename = "_" + cardValue + suit;
+            }
+
             Image img = (Image)Properties.Resources.ResourceManager.GetObject(filename);
+
+            BetterTags tags = new BetterTags();
+            tags.Add("Value", Value);
+            tags.Add("Revealed", revealed);
+
             PictureBox pictureBox = new PictureBox
             {
                 SizeMode = PictureBoxSizeMode.AutoSize,
                 Image = img,
                 Name = this.ToString(),
-                Tag = Value
+                Tag = tags,
             };
             pictureBox.Click += Card_click;
             return pictureBox;
         }
 
-        public PictureBox Show(Point location)
+        public PictureBox ShowAt(Point location)
         {
             PictureBox sprite = Sprite();
             sprite.Location = location;

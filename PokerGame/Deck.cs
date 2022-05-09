@@ -23,7 +23,14 @@ namespace PokerGame
             {
                 foreach (VALUE v in Enum.GetValues(typeof(VALUE)))
                 {
-                    cards.Add(new Card {Suit = s, Value = v });
+                    cards.Add(
+                        new Card
+                        {
+                            Suit = s,
+                            Value = v,
+                            revealed = false
+                        }
+                    );
                 }
             }
 
@@ -48,13 +55,31 @@ namespace PokerGame
             {
                 Card card = cards[cards.Count - 1];
                 cards.RemoveAt(cards.Count - 1);
+                card.revealed = true;
                 return card;
-            } else
+            }
+            else
             {
                 MessageBox.Show("No more cards to draw!");
                 throw new Exception("NoMoreCardsInDeck");
             }
-            
+        }
+
+        public Card DrawCardFaceDown()
+        {
+            Card card = DrawCard();
+            card.revealed = false;
+            return card;
+        }
+
+        public List<Card> DrawCards(int amount)
+        {
+            List<Card> cards = new List<Card>();
+            for (int i = 0; i < amount; i++)
+            {
+                cards.Add(DrawCard());
+            }
+            return cards;
         }
     }
 }

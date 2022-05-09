@@ -34,6 +34,10 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.GamePage = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.lblBet = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblBalance = new System.Windows.Forms.Label();
@@ -74,7 +78,7 @@
             this.SceneManger.Location = new System.Drawing.Point(1, -2);
             this.SceneManger.Name = "SceneManger";
             this.SceneManger.SelectedIndex = 0;
-            this.SceneManger.Size = new System.Drawing.Size(1130, 530);
+            this.SceneManger.Size = new System.Drawing.Size(1049, 557);
             this.SceneManger.TabIndex = 6;
             this.SceneManger.Selected += new System.Windows.Forms.TabControlEventHandler(this.SceneManger_Selected);
             // 
@@ -86,7 +90,7 @@
             this.LoginPage.Location = new System.Drawing.Point(4, 24);
             this.LoginPage.Name = "LoginPage";
             this.LoginPage.Padding = new System.Windows.Forms.Padding(3);
-            this.LoginPage.Size = new System.Drawing.Size(1122, 502);
+            this.LoginPage.Size = new System.Drawing.Size(1041, 529);
             this.LoginPage.TabIndex = 0;
             this.LoginPage.Text = "Login";
             this.LoginPage.UseVisualStyleBackColor = true;
@@ -118,6 +122,10 @@
             // 
             // GamePage
             // 
+            this.GamePage.Controls.Add(this.button5);
+            this.GamePage.Controls.Add(this.button4);
+            this.GamePage.Controls.Add(this.textBox1);
+            this.GamePage.Controls.Add(this.richTextBox1);
             this.GamePage.Controls.Add(this.lblBet);
             this.GamePage.Controls.Add(this.label6);
             this.GamePage.Controls.Add(this.lblBalance);
@@ -136,11 +144,45 @@
             this.GamePage.Location = new System.Drawing.Point(4, 24);
             this.GamePage.Name = "GamePage";
             this.GamePage.Padding = new System.Windows.Forms.Padding(3);
-            this.GamePage.Size = new System.Drawing.Size(1122, 502);
+            this.GamePage.Size = new System.Drawing.Size(1041, 529);
             this.GamePage.TabIndex = 1;
             this.GamePage.Text = "Game";
             this.GamePage.UseVisualStyleBackColor = true;
             this.GamePage.Click += new System.EventHandler(this.GamePage_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(720, 447);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(67, 47);
+            this.button5.TabIndex = 24;
+            this.button5.Text = "Reveal";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(960, 408);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(43, 26);
+            this.button4.TabIndex = 23;
+            this.button4.Text = "Send";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(797, 408);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(156, 23);
+            this.textBox1.TabIndex = 22;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(797, 248);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(206, 154);
+            this.richTextBox1.TabIndex = 21;
+            this.richTextBox1.Text = "";
             // 
             // lblBet
             // 
@@ -221,7 +263,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(981, 212);
+            this.button3.Location = new System.Drawing.Point(77, 428);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(67, 47);
             this.button3.TabIndex = 11;
@@ -232,20 +274,24 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(967, 105);
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(869, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.Size = new System.Drawing.Size(84, 35);
             this.label2.TabIndex = 10;
             this.label2.Text = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(967, 78);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(869, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(84, 35);
             this.label1.TabIndex = 9;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // gbDealerCards
             // 
@@ -259,7 +305,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(897, 266);
+            this.button2.Location = new System.Drawing.Point(570, 447);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(67, 47);
             this.button2.TabIndex = 7;
@@ -268,7 +314,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(897, 212);
+            this.button1.Location = new System.Drawing.Point(325, 447);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(67, 47);
             this.button1.TabIndex = 5;
@@ -285,13 +331,14 @@
             this.gbPlayerCards.TabIndex = 6;
             this.gbPlayerCards.TabStop = false;
             this.gbPlayerCards.Text = "Your Cards:";
+            this.gbPlayerCards.Visible = false;
             // 
             // ProfilePage
             // 
             this.ProfilePage.Location = new System.Drawing.Point(4, 24);
             this.ProfilePage.Name = "ProfilePage";
             this.ProfilePage.Padding = new System.Windows.Forms.Padding(3);
-            this.ProfilePage.Size = new System.Drawing.Size(1122, 502);
+            this.ProfilePage.Size = new System.Drawing.Size(1041, 529);
             this.ProfilePage.TabIndex = 2;
             this.ProfilePage.Text = "Profile";
             this.ProfilePage.UseVisualStyleBackColor = true;
@@ -305,7 +352,7 @@
             this.menuPage.Location = new System.Drawing.Point(4, 24);
             this.menuPage.Name = "menuPage";
             this.menuPage.Padding = new System.Windows.Forms.Padding(3);
-            this.menuPage.Size = new System.Drawing.Size(1122, 502);
+            this.menuPage.Size = new System.Drawing.Size(1041, 529);
             this.menuPage.TabIndex = 3;
             this.menuPage.Text = "Menu";
             this.menuPage.UseVisualStyleBackColor = true;
@@ -354,7 +401,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1123, 521);
+            this.ClientSize = new System.Drawing.Size(1078, 559);
             this.Controls.Add(this.SceneManger);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -402,5 +449,9 @@
         private Label lblBalance;
         private Label lblBet;
         private Label label6;
+        private Button button4;
+        private TextBox textBox1;
+        private RichTextBox richTextBox1;
+        private Button button5;
     }
 }
