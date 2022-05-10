@@ -83,6 +83,7 @@ namespace PokerGame
             );
 
             Redraw();
+            EvaluateScore();
         }
 
         public void Draw()

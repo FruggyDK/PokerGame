@@ -5,6 +5,7 @@ namespace PokerGame
         private Deck deck = new Deck(1);
         private User user;
         bool hasBetted = true;
+        int bet;
 
         public Form1()
         {
@@ -13,12 +14,9 @@ namespace PokerGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SceneManger.SelectedIndex = 1;
-            GiveDealerCards();
-            if (hasBetted)
-            {
-                // Game logic
-            }
+            SceneManger.SelectedIndex = 0;
+            btnHit.Enabled = false;
+            btnStand.Enabled = false;
         }
 
         private void UpdateScore()
@@ -86,6 +84,11 @@ namespace PokerGame
         private void btnPlay_Click(object sender, EventArgs e)
         {
             SceneManger.SelectTab(GamePage);
+            GetBetFromUser();
+            if (hasBetted == true)
+            {
+                DealCards();
+            }
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -101,8 +104,9 @@ namespace PokerGame
             UpdateScore();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnStand_Click(object sender, EventArgs e)
         {
+            btnHit.Enabled = false;
             DealerLogic();
 
             // TODO: fix dealer logic
@@ -113,14 +117,60 @@ namespace PokerGame
         public void DealerLogic()
         {
             dealerHand.RevealAll();
-            label2.Text = dealerHand.EvaluateScore().ToString();
 
-            while (dealerHand.EvaluateScore() <= 17)
+            while (dealerHand.score < 17)
             {
                 // Keep on drawing
                 dealerHand.AddCard(deck.DrawCard());
                 dealerHand.Update();
             }
+            UpdateScore();
+        }
+
+        private void GamePage_Enter(object sender, EventArgs e)
+        {
+            if (this.Created == true) { }
+        }
+
+        private void GetBetFromUser()
+        {
+            BetForm betForm = new BetForm(user.chip_balance);
+            betForm.BringToFront();
+            betForm.StartPosition = FormStartPosition.CenterParent;
+            var result = betForm.ShowDialog(this.ActiveControl);
+            if (result == DialogResult.OK)
+            {
+                bet = betForm.bet;
+                user.chip_balance -= bet;
+                lblBalance.Text = user.chip_balance.ToString();
+                lblBet.Text = bet.ToString();
+                hasBetted = true;
+                btnStand.Enabled = true;
+                btnHit.Enabled = true;
+            }
+        }
+
+        private void SceneManger_Validated(object sender, EventArgs e)
+        {
+            //GetBetFromUser();
+        }
+
+        private void GamePage_Validated(object sender, EventArgs e)
+        {
+            //GetBetFromUser();
+        }
+
+        public void DealCards()
+        {
+            /* TODO: deal 1 card and then switch, rather than
+             * dealing two cards to each entity. */
+            GiveDealerCards();
+            for (int i = 0; i < 2; i++)
+            {
+                playerHand.AddCard(deck.DrawCard());
+            }
+            playerHand.Update();
+            UpdateScore();
         }
     }
 }

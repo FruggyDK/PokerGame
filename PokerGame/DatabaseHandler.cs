@@ -19,7 +19,6 @@ namespace PokerGame
             + Settings.Default.Password
             + ";";
 
-
         public static bool TestConnection()
         {
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
@@ -35,10 +34,7 @@ namespace PokerGame
             return true;
         }
 
-        public static long Login(
-            string username,
-            string password
-        )
+        public static long Login(string username, string password)
         {
             long user_id = -1;
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
@@ -49,8 +45,7 @@ namespace PokerGame
             {
                 Connection = connection,
                 CommandType = CommandType.Text,
-                CommandText =
-                    "select id from login where username = @1 and password = @2"
+                CommandText = "select id from login where username = @1 and password = @2"
             };
             cmd.Parameters.AddWithValue("@1", username);
             cmd.Parameters.AddWithValue("@2", password);
@@ -70,6 +65,7 @@ namespace PokerGame
             connection.Close();
             return user_id;
         }
+
         public static int GetUsersChipBalance(long user_id)
         {
             int chip_balance = -1;
@@ -79,9 +75,7 @@ namespace PokerGame
             {
                 Connection = connection,
                 CommandType = CommandType.Text,
-                CommandText =
-                    "select chip_balance from users "
-                    + " where users.id = @1 "
+                CommandText = "select chip_balance from users " + " where users.id = @1 "
             };
             cmd.Parameters.AddWithValue("@1", user_id);
 
@@ -112,9 +106,7 @@ namespace PokerGame
             {
                 Connection = connection,
                 CommandType = CommandType.Text,
-                CommandText =
-                    "update users set chip_balance = @1 "
-                    + " where users.id = @2 "
+                CommandText = "update users set chip_balance = @1 " + " where users.id = @2 "
             };
             cmd.Parameters.AddWithValue("@1", new_bal);
             cmd.Parameters.AddWithValue("@2", user_id);
@@ -132,15 +124,6 @@ namespace PokerGame
             cmd.Dispose();
             connection.Close();
         }
-
-
-
-
-
-
-
-
-
 
         //
         // Methods for communicating with movie_genres table
@@ -171,9 +154,5 @@ namespace PokerGame
             connection.Close();
             return true;
         }
-
-
     }
-
 }
-
