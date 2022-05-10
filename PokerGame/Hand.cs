@@ -14,6 +14,7 @@ namespace PokerGame
         public Hand()
         {
             cards = new List<Card>();
+            EvaluateScore();
         }
 
         public void AddCard(Card card)
@@ -56,7 +57,6 @@ namespace PokerGame
             }
 
             int aceCount = cards.Where(card => card.Value == Card.VALUE.ACE).Count();
-            MessageBox.Show(aceCount.ToString());
 
             while (aceCount > 0)
             {
@@ -87,7 +87,7 @@ namespace PokerGame
 
         public void Draw()
         {
-            int spacing = 15;
+            int spacing = 20;
             int cardCount = cards.Count;
             foreach (Card card in cards)
             {
@@ -108,6 +108,7 @@ namespace PokerGame
             {
                 Redraw();
             }
+            EvaluateScore();
         }
 
         public void Redraw()

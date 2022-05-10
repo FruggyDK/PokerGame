@@ -34,10 +34,9 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.GamePage = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lblRemainingCards = new System.Windows.Forms.Label();
+            this.dealerHand = new PokerGame.Hand();
+            this.playerHand = new PokerGame.Hand();
             this.lblBet = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblBalance = new System.Windows.Forms.Label();
@@ -46,13 +45,10 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.gbDealerCards = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.gbPlayerCards = new System.Windows.Forms.GroupBox();
+            this.btnHit = new System.Windows.Forms.Button();
             this.ProfilePage = new System.Windows.Forms.TabPage();
             this.menuPage = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -122,10 +118,9 @@
             // 
             // GamePage
             // 
-            this.GamePage.Controls.Add(this.button5);
-            this.GamePage.Controls.Add(this.button4);
-            this.GamePage.Controls.Add(this.textBox1);
-            this.GamePage.Controls.Add(this.richTextBox1);
+            this.GamePage.Controls.Add(this.lblRemainingCards);
+            this.GamePage.Controls.Add(this.dealerHand);
+            this.GamePage.Controls.Add(this.playerHand);
             this.GamePage.Controls.Add(this.lblBet);
             this.GamePage.Controls.Add(this.label6);
             this.GamePage.Controls.Add(this.lblBalance);
@@ -134,13 +129,10 @@
             this.GamePage.Controls.Add(this.pictureBox7);
             this.GamePage.Controls.Add(this.pictureBox6);
             this.GamePage.Controls.Add(this.pictureBox2);
-            this.GamePage.Controls.Add(this.button3);
             this.GamePage.Controls.Add(this.label2);
             this.GamePage.Controls.Add(this.label1);
-            this.GamePage.Controls.Add(this.gbDealerCards);
             this.GamePage.Controls.Add(this.button2);
-            this.GamePage.Controls.Add(this.button1);
-            this.GamePage.Controls.Add(this.gbPlayerCards);
+            this.GamePage.Controls.Add(this.btnHit);
             this.GamePage.Location = new System.Drawing.Point(4, 24);
             this.GamePage.Name = "GamePage";
             this.GamePage.Padding = new System.Windows.Forms.Padding(3);
@@ -148,41 +140,33 @@
             this.GamePage.TabIndex = 1;
             this.GamePage.Text = "Game";
             this.GamePage.UseVisualStyleBackColor = true;
-            this.GamePage.Click += new System.EventHandler(this.GamePage_Click);
             // 
-            // button5
+            // lblRemainingCards
             // 
-            this.button5.Location = new System.Drawing.Point(720, 447);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(67, 47);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "Reveal";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.lblRemainingCards.AutoSize = true;
+            this.lblRemainingCards.Location = new System.Drawing.Point(91, 397);
+            this.lblRemainingCards.Name = "lblRemainingCards";
+            this.lblRemainingCards.Size = new System.Drawing.Size(13, 15);
+            this.lblRemainingCards.TabIndex = 27;
+            this.lblRemainingCards.Text = "0";
             // 
-            // button4
+            // dealerHand
             // 
-            this.button4.Location = new System.Drawing.Point(960, 408);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(43, 26);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "Send";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dealerHand.Location = new System.Drawing.Point(273, 28);
+            this.dealerHand.Name = "dealerHand";
+            this.dealerHand.Size = new System.Drawing.Size(500, 190);
+            this.dealerHand.TabIndex = 26;
+            this.dealerHand.TabStop = false;
+            this.dealerHand.Text = "Dealers Hand";
             // 
-            // textBox1
+            // playerHand
             // 
-            this.textBox1.Location = new System.Drawing.Point(797, 408);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 23);
-            this.textBox1.TabIndex = 22;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(797, 248);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(206, 154);
-            this.richTextBox1.TabIndex = 21;
-            this.richTextBox1.Text = "";
+            this.playerHand.Location = new System.Drawing.Point(273, 236);
+            this.playerHand.Name = "playerHand";
+            this.playerHand.Size = new System.Drawing.Size(500, 190);
+            this.playerHand.TabIndex = 25;
+            this.playerHand.TabStop = false;
+            this.playerHand.Text = "Your Hand";
             // 
             // lblBet
             // 
@@ -239,7 +223,6 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox7.TabIndex = 15;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox6
             // 
@@ -261,77 +244,45 @@
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(77, 428);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(67, 47);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(869, 90);
+            this.label2.Location = new System.Drawing.Point(823, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 35);
             this.label2.TabIndex = 10;
             this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(869, 37);
+            this.label1.Location = new System.Drawing.Point(823, 327);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 35);
             this.label1.TabIndex = 9;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // gbDealerCards
-            // 
-            this.gbDealerCards.BackColor = System.Drawing.Color.LightGray;
-            this.gbDealerCards.Location = new System.Drawing.Point(229, 20);
-            this.gbDealerCards.Name = "gbDealerCards";
-            this.gbDealerCards.Size = new System.Drawing.Size(539, 190);
-            this.gbDealerCards.TabIndex = 8;
-            this.gbDealerCards.TabStop = false;
-            this.gbDealerCards.Text = "Dealers Cards:";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(570, 447);
+            this.button2.Location = new System.Drawing.Point(569, 447);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(67, 47);
             this.button2.TabIndex = 7;
             this.button2.Text = "Stand";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnHit
             // 
-            this.button1.Location = new System.Drawing.Point(325, 447);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 47);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Hit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // gbPlayerCards
-            // 
-            this.gbPlayerCards.BackColor = System.Drawing.Color.LightGray;
-            this.gbPlayerCards.Location = new System.Drawing.Point(229, 232);
-            this.gbPlayerCards.Name = "gbPlayerCards";
-            this.gbPlayerCards.Size = new System.Drawing.Size(539, 190);
-            this.gbPlayerCards.TabIndex = 6;
-            this.gbPlayerCards.TabStop = false;
-            this.gbPlayerCards.Text = "Your Cards:";
-            this.gbPlayerCards.Visible = false;
+            this.btnHit.Location = new System.Drawing.Point(409, 447);
+            this.btnHit.Name = "btnHit";
+            this.btnHit.Size = new System.Drawing.Size(67, 47);
+            this.btnHit.TabIndex = 5;
+            this.btnHit.Text = "Hit";
+            this.btnHit.UseVisualStyleBackColor = true;
+            this.btnHit.Click += new System.EventHandler(this.btnHit_Click);
             // 
             // ProfilePage
             // 
@@ -430,12 +381,9 @@
         private Button btnLogin;
         private TabPage GamePage;
         private Button button2;
-        private Button button1;
-        private GroupBox gbPlayerCards;
-        private GroupBox gbDealerCards;
+        private Button btnHit;
         private Label label2;
         private Label label1;
-        private Button button3;
         private TabPage menuPage;
         private Button btnLogout;
         private Button btnProfile;
@@ -449,9 +397,8 @@
         private Label lblBalance;
         private Label lblBet;
         private Label label6;
-        private Button button4;
-        private TextBox textBox1;
-        private RichTextBox richTextBox1;
-        private Button button5;
+        private Hand dealerHand;
+        private Hand playerHand;
+        private Label lblRemainingCards;
     }
 }

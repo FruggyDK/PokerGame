@@ -10,11 +10,17 @@ namespace PokerGame
     {
         const int NUM_OF_CARDS = 52;
         public List<Card> cards;
+        public int numberOfDecks = 1;
 
-        public Deck()
+        public Deck(int numberOfDecks)
         {
             cards = new List<Card>(NUM_OF_CARDS);
-            PopulateDeck();
+            for (int i = 0; i < numberOfDecks; i++)
+            {
+                PopulateDeck();
+            }
+
+            ShuffleDeck();
         }
 
         private void PopulateDeck()
@@ -33,14 +39,12 @@ namespace PokerGame
                     );
                 }
             }
-
-            ShuffleDeck();
         }
 
         private void ShuffleDeck()
         {
             Random rand = new Random();
-            for (int i = 0; i < NUM_OF_CARDS; i++)
+            for (int i = 0; i < NUM_OF_CARDS * numberOfDecks; i++)
             {
                 int j = rand.Next(0, cards.Count);
                 Card tmp = cards[j];
