@@ -6,7 +6,7 @@ namespace PokerGame
         private const int numberOfDecks = 1;
         private const int defaultChipBalance = 1000;
 
-        private Deck deck = new Deck(1);
+        private Deck deck = new Deck(numberOfDecks);
         private User user;
         bool hasBetted = true;
         int bet;
@@ -79,13 +79,9 @@ namespace PokerGame
         private void btnLogout_Click(object sender, EventArgs e)
         {
             // Handle logout?
-            SceneControl.SelectTab(LoginPage);
-        }
-
-        private void SceneManger_Selected(object sender, TabControlEventArgs e)
-        {
             txtUsername.Clear();
             txtPassword.Clear();
+            SceneControl.SelectTab(LoginPage);
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -226,16 +222,6 @@ namespace PokerGame
             }
         }
 
-        private void SceneManger_Validated(object sender, EventArgs e)
-        {
-            //GetBetFromUser();
-        }
-
-        private void GamePage_Validated(object sender, EventArgs e)
-        {
-            //GetBetFromUser();
-        }
-
         public void DealCards()
         {
             /* TODO: deal 1 card and then switch, rather than
@@ -248,10 +234,6 @@ namespace PokerGame
             playerHand.Update();
             UpdateScore();
         }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e) { }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e) { }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

@@ -39,6 +39,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.GamePage = new System.Windows.Forms.TabPage();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.lblRemainingCards = new System.Windows.Forms.Label();
             this.dealerHand = new PokerGame.Hand();
             this.playerHand = new PokerGame.Hand();
@@ -61,7 +62,6 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.SceneControl.SuspendLayout();
             this.LoginPage.SuspendLayout();
             this.GamePage.SuspendLayout();
@@ -83,8 +83,6 @@
             this.SceneControl.SelectedIndex = 0;
             this.SceneControl.Size = new System.Drawing.Size(1049, 557);
             this.SceneControl.TabIndex = 6;
-            this.SceneControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.SceneManger_Selected);
-            this.SceneControl.Validated += new System.EventHandler(this.SceneManger_Validated);
             // 
             // LoginPage
             // 
@@ -169,7 +167,6 @@
             this.txtPassword.Size = new System.Drawing.Size(134, 23);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
             // 
@@ -177,7 +174,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(134, 23);
             this.txtUsername.TabIndex = 0;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // GamePage
             // 
@@ -204,7 +200,16 @@
             this.GamePage.TabIndex = 1;
             this.GamePage.Text = "Game";
             this.GamePage.UseVisualStyleBackColor = true;
-            this.GamePage.Validated += new System.EventHandler(this.GamePage_Validated);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(847, 447);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(60, 47);
+            this.btnMenu.TabIndex = 28;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // lblRemainingCards
             // 
@@ -218,6 +223,7 @@
             // 
             // dealerHand
             // 
+            this.dealerHand.BackColor = System.Drawing.Color.LightGray;
             this.dealerHand.Location = new System.Drawing.Point(273, 28);
             this.dealerHand.Name = "dealerHand";
             this.dealerHand.Size = new System.Drawing.Size(500, 190);
@@ -227,6 +233,7 @@
             // 
             // playerHand
             // 
+            this.playerHand.BackColor = System.Drawing.Color.LightGray;
             this.playerHand.Location = new System.Drawing.Point(273, 236);
             this.playerHand.Name = "playerHand";
             this.playerHand.Size = new System.Drawing.Size(500, 190);
@@ -237,40 +244,40 @@
             // lblBet
             // 
             this.lblBet.AutoSize = true;
-            this.lblBet.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBet.Location = new System.Drawing.Point(91, 155);
+            this.lblBet.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBet.Location = new System.Drawing.Point(160, 89);
             this.lblBet.Name = "lblBet";
-            this.lblBet.Size = new System.Drawing.Size(26, 30);
+            this.lblBet.Size = new System.Drawing.Size(24, 27);
             this.lblBet.TabIndex = 20;
             this.lblBet.Text = "0";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(77, 115);
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(44, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 30);
+            this.label6.Size = new System.Drawing.Size(52, 27);
             this.label6.TabIndex = 19;
             this.label6.Text = "Bet:";
             // 
             // lblBalance
             // 
             this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBalance.Location = new System.Drawing.Point(91, 78);
+            this.lblBalance.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBalance.Location = new System.Drawing.Point(160, 47);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(26, 30);
+            this.lblBalance.Size = new System.Drawing.Size(24, 27);
             this.lblBalance.TabIndex = 18;
             this.lblBalance.Text = "0";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(60, 39);
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(44, 47);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 30);
+            this.label4.Size = new System.Drawing.Size(90, 27);
             this.label4.TabIndex = 17;
             this.label4.Text = "Balance:";
             // 
@@ -427,16 +434,6 @@
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Location = new System.Drawing.Point(847, 447);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(60, 47);
-            this.btnMenu.TabIndex = 28;
-            this.btnMenu.Text = "Menu";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // Form1
             // 
