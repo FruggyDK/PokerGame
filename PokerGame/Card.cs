@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokerGame
+﻿namespace PokerGame
 {
     internal class Card
     {
@@ -61,16 +55,11 @@ namespace PokerGame
 
             Image img = (Image)Properties.Resources.ResourceManager.GetObject(filename);
 
-            BetterTags tags = new BetterTags();
-            tags.Add("Value", Value);
-            tags.Add("Revealed", revealed);
-
             PictureBox pictureBox = new PictureBox
             {
                 SizeMode = PictureBoxSizeMode.AutoSize,
                 Image = img,
                 Name = this.ToString(),
-                Tag = tags,
             };
             pictureBox.Click += Card_click;
             return pictureBox;

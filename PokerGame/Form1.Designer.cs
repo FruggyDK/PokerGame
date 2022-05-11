@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SceneManger = new System.Windows.Forms.TabControl();
+            this.SceneControl = new System.Windows.Forms.TabControl();
             this.LoginPage = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -56,7 +61,8 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.SceneManger.SuspendLayout();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.SceneControl.SuspendLayout();
             this.LoginPage.SuspendLayout();
             this.GamePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -66,22 +72,27 @@
             this.menuPage.SuspendLayout();
             this.SuspendLayout();
             // 
-            // SceneManger
+            // SceneControl
             // 
-            this.SceneManger.Controls.Add(this.LoginPage);
-            this.SceneManger.Controls.Add(this.GamePage);
-            this.SceneManger.Controls.Add(this.ProfilePage);
-            this.SceneManger.Controls.Add(this.menuPage);
-            this.SceneManger.Location = new System.Drawing.Point(1, -2);
-            this.SceneManger.Name = "SceneManger";
-            this.SceneManger.SelectedIndex = 0;
-            this.SceneManger.Size = new System.Drawing.Size(1049, 557);
-            this.SceneManger.TabIndex = 6;
-            this.SceneManger.Selected += new System.Windows.Forms.TabControlEventHandler(this.SceneManger_Selected);
-            this.SceneManger.Validated += new System.EventHandler(this.SceneManger_Validated);
+            this.SceneControl.Controls.Add(this.LoginPage);
+            this.SceneControl.Controls.Add(this.GamePage);
+            this.SceneControl.Controls.Add(this.ProfilePage);
+            this.SceneControl.Controls.Add(this.menuPage);
+            this.SceneControl.Location = new System.Drawing.Point(1, -2);
+            this.SceneControl.Name = "SceneControl";
+            this.SceneControl.SelectedIndex = 0;
+            this.SceneControl.Size = new System.Drawing.Size(1049, 557);
+            this.SceneControl.TabIndex = 6;
+            this.SceneControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.SceneManger_Selected);
+            this.SceneControl.Validated += new System.EventHandler(this.SceneManger_Validated);
             // 
             // LoginPage
             // 
+            this.LoginPage.Controls.Add(this.label10);
+            this.LoginPage.Controls.Add(this.linkLabel1);
+            this.LoginPage.Controls.Add(this.label9);
+            this.LoginPage.Controls.Add(this.label8);
+            this.LoginPage.Controls.Add(this.label7);
             this.LoginPage.Controls.Add(this.btnLogin);
             this.LoginPage.Controls.Add(this.txtPassword);
             this.LoginPage.Controls.Add(this.txtUsername);
@@ -93,11 +104,59 @@
             this.LoginPage.Text = "Login";
             this.LoginPage.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(422, 294);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(131, 15);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Don\'t have an account?";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(457, 321);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(47, 15);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Sign up";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(461, 200);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 15);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Password";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(461, 150);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 15);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Username";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(352, 91);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(295, 40);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Scuffed Black Jack";
+            // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(307, 217);
+            this.btnLogin.Location = new System.Drawing.Point(450, 259);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(71, 23);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -105,21 +164,24 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(293, 168);
+            this.txtPassword.Location = new System.Drawing.Point(422, 218);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 23);
+            this.txtPassword.Size = new System.Drawing.Size(134, 23);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(293, 127);
+            this.txtUsername.Location = new System.Drawing.Point(422, 168);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(100, 23);
+            this.txtUsername.Size = new System.Drawing.Size(134, 23);
             this.txtUsername.TabIndex = 0;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // GamePage
             // 
+            this.GamePage.Controls.Add(this.btnMenu);
             this.GamePage.Controls.Add(this.lblRemainingCards);
             this.GamePage.Controls.Add(this.dealerHand);
             this.GamePage.Controls.Add(this.playerHand);
@@ -142,7 +204,6 @@
             this.GamePage.TabIndex = 1;
             this.GamePage.Text = "Game";
             this.GamePage.UseVisualStyleBackColor = true;
-            this.GamePage.Enter += new System.EventHandler(this.GamePage_Enter);
             this.GamePage.Validated += new System.EventHandler(this.GamePage_Validated);
             // 
             // lblRemainingCards
@@ -367,17 +428,27 @@
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(847, 447);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(60, 47);
+            this.btnMenu.TabIndex = 28;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1045, 549);
-            this.Controls.Add(this.SceneManger);
+            this.Controls.Add(this.SceneControl);
             this.Name = "Form1";
             this.Text = "Scuffed Black Jack ";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.SceneManger.ResumeLayout(false);
+            this.SceneControl.ResumeLayout(false);
             this.LoginPage.ResumeLayout(false);
             this.LoginPage.PerformLayout();
             this.GamePage.ResumeLayout(false);
@@ -393,7 +464,7 @@
         }
 
         #endregion
-        private TabControl SceneManger;
+        private TabControl SceneControl;
         private TabPage LoginPage;
         private TabPage ProfilePage;
         private TextBox txtPassword;
@@ -421,5 +492,11 @@
         private Hand playerHand;
         private Label lblRemainingCards;
         private Label label5;
+        private Label label7;
+        private LinkLabel linkLabel1;
+        private Label label9;
+        private Label label8;
+        private Label label10;
+        private Button btnMenu;
     }
 }

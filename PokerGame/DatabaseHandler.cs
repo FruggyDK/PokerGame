@@ -45,7 +45,8 @@ namespace PokerGame
             {
                 Connection = connection,
                 CommandType = CommandType.Text,
-                CommandText = "select id from login where username = @1 and password = @2"
+                CommandText =
+                    "select related_userid from login where username = @1 and password = @2"
             };
             cmd.Parameters.AddWithValue("@1", username);
             cmd.Parameters.AddWithValue("@2", password);
@@ -64,6 +65,63 @@ namespace PokerGame
             cmd.Dispose();
             connection.Close();
             return user_id;
+        }
+
+        public static long CreateUser(int defaultChipBalance)
+        {
+            long user_id = -1;
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand
+            {
+                Connection = connection,
+                CommandType = CommandType.Text,
+                CommandText = "insert into users(chip_balance) values(@1) returning id"
+            };
+            cmd.Parameters.AddWithValue("@1", defaultChipBalance);
+            try
+            {
+                object obj = cmd.ExecuteScalar();
+                if (obj != null)
+                {
+                    user_id = (long)obj;
+                }
+            }
+            catch (NpgsqlException E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            cmd.Dispose();
+            connection.Close();
+            return user_id;
+        }
+
+        public static bool CreateLogin(string username, string password, long user_id)
+        {
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand
+            {
+                Connection = connection,
+                CommandType = CommandType.Text,
+                CommandText =
+                    "insert into login(username, password, related_userid) values(@1, @2, @3)"
+            };
+            cmd.Parameters.AddWithValue("@1", username);
+            cmd.Parameters.AddWithValue("@2", password);
+            cmd.Parameters.AddWithValue("@3", user_id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (NpgsqlException E)
+            {
+                MessageBox.Show(E.Message);
+                return false;
+            }
+            cmd.Dispose();
+            connection.Close();
+            return true;
         }
 
         public static int GetUsersChipBalance(long user_id)

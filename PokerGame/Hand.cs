@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokerGame
+﻿namespace PokerGame
 {
     internal class Hand : GroupBox
     {
@@ -15,6 +9,7 @@ namespace PokerGame
         {
             cards = new List<Card>();
             EvaluateScore();
+            this.BackColor = Color.LightGray;
         }
 
         public void AddCard(Card card)

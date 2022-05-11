@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokerGame
+﻿namespace PokerGame
 {
     internal class Game
     {
@@ -27,12 +21,11 @@ namespace PokerGame
 
         public void Run()
         {
-            switch(roundType)
+            switch (roundType)
             {
                 case RoundType.PreFlop:
 
                     break;
-
             }
         }
     }
